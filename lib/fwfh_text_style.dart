@@ -179,10 +179,6 @@ class FwfhTextStyle extends _TextStyleProxy {
   TextStyle merge(TextStyle? other) => FwfhTextStyle.from(
         ref.merge(other is FwfhTextStyle ? other.ref : other),
       );
-
-  @override
-  // TODO: implement fontVariations
-  List<ui.FontVariation>? get fontVariations => throw UnimplementedError();
 }
 
 class _DefaultValue {
@@ -285,6 +281,9 @@ abstract class _TextStyleProxy implements TextStyle {
   @override
   ui.TextStyle getTextStyle({double textScaleFactor = 1.0}) =>
       ref.getTextStyle(textScaleFactor: textScaleFactor);
+
+  @override
+  List<ui.FontVariation>? get fontVariations => ref.fontVariations;
 
   @override
   bool operator ==(Object other) {
