@@ -54,6 +54,7 @@ class FwfhTextStyle extends _TextStyleProxy {
     double fontSizeDelta = 0.0,
     int fontWeightDelta = 0,
     FontStyle? fontStyle,
+    List<ui.FontVariation>? fontVariations,
     double letterSpacingFactor = 1.0,
     double letterSpacingDelta = 0.0,
     double wordSpacingFactor = 1.0,
@@ -83,6 +84,7 @@ class FwfhTextStyle extends _TextStyleProxy {
           fontSizeDelta: fontSizeDelta,
           fontWeightDelta: fontWeightDelta,
           fontStyle: fontStyle,
+          fontVariations: fontVariations,
           letterSpacingFactor: letterSpacingFactor,
           letterSpacingDelta: letterSpacingDelta,
           wordSpacingFactor: wordSpacingFactor,
@@ -107,6 +109,7 @@ class FwfhTextStyle extends _TextStyleProxy {
     double? fontSize,
     FontWeight? fontWeight,
     FontStyle? fontStyle,
+    List<ui.FontVariation>? fontVariations,
     double? letterSpacing,
     double? wordSpacing,
     TextBaseline? textBaseline,
@@ -148,6 +151,7 @@ class FwfhTextStyle extends _TextStyleProxy {
         fontSize: fontSize ?? this.fontSize,
         fontWeight: fontWeight ?? this.fontWeight,
         fontStyle: fontStyle ?? this.fontStyle,
+        fontVariations: fontVariations ?? this.fontVariations,
         letterSpacing: letterSpacing ?? this.letterSpacing,
         wordSpacing: wordSpacing ?? this.wordSpacing,
         textBaseline: textBaseline ?? this.textBaseline,
@@ -175,6 +179,10 @@ class FwfhTextStyle extends _TextStyleProxy {
   TextStyle merge(TextStyle? other) => FwfhTextStyle.from(
         ref.merge(other is FwfhTextStyle ? other.ref : other),
       );
+
+  @override
+  // TODO: implement fontVariations
+  List<ui.FontVariation>? get fontVariations => throw UnimplementedError();
 }
 
 class _DefaultValue {
